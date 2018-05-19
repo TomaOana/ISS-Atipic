@@ -20,6 +20,7 @@ namespace LogIn
         private void button1_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\Visual Studio 2015\Projects\LogIn\Data.mdf;Integrated Security=True;Connect Timeout=30");
+            //SqlDataAdapter sda = new SqlDataAdapter("select count(*) from Donator where Nr_card_sanatate = '" + textBox1.Text + "' and Parola='" + textBox2.Text + "'", conn);
             SqlDataAdapter sda = new SqlDataAdapter("select count(*) from login where UserName = '" + textBox1.Text + "' and Password='" + textBox2.Text + "'", conn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -27,6 +28,7 @@ namespace LogIn
             {
                 this.Hide();
                 Pag2 ss = new Pag2();
+                //medic ss = new medic();
                 ss.Show();
             }
             else
